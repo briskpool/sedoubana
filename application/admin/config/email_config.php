@@ -6,7 +6,7 @@ $config['email_smtp']=array(
             'smtp_host' =>'mail.sedoubana.com',
             'smtp_port' => '587',
             'smtp_user' => 'info@sedoubana.com',
-            'smtp_pass' => 'Excellent4$#@!1',
+            'smtp_pass' => 'lvIRjfNn5AaT',
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
         );
