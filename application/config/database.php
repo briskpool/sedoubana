@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'sedoubana',
+	'hostname' => '162.240.48.145',
+	'username' => 'sedouban_liveuser',
+	'password' => '%9R3;2z&UJOa',
+	'database' => 'sedouban_livedb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
