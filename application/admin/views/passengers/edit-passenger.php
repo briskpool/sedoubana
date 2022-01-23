@@ -42,7 +42,7 @@ $this->load->view('includes/header');
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>First Name</label>
+                                                                <label>Last Name</label>
                                                                 <input type="text" value="<?php echo $passenger->lname ?>"
                                                                        class="form-control"
                                                                        id="lname" name="lname" required>

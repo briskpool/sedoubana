@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reset Your Password</title>
   <!--[if !mso]>
-      <!-- -->
+      -->
   <link href='https://fonts.googleapis.com/css?family=Asap:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <!--<![endif]-->
   <style type="text/css">
