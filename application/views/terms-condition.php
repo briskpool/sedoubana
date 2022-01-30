@@ -32,13 +32,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 order-md-last ftco-animate">
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
                         <div class="desc">
                             <h3>AN OVERVIEW OF THE TERMS OF SERVICE, THE CHARTER OF RESPONSIBILITIES AND THE PRIVACY POLICY OF SEDOUBANA.</h3>
 
                         </div>
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
 
                         <div class="desc">
@@ -49,7 +49,7 @@
                         </div>
 
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h2>SEDOUBANA</h2>
@@ -62,7 +62,7 @@
                         </div>
 
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h3>Here are required documents to become a driver of Sedoubana</h3>
@@ -169,7 +169,7 @@
                         </div>
 
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h3>Insurance for vehicles, drivers and passengers:</h3>
@@ -228,7 +228,7 @@
 
                     </div>
 
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
 
@@ -254,7 +254,7 @@
                     <h3>
                         Ci-dessous se trouve la version française :
                     </h3>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h3>APERÇU DES CONDITIONS DE SERVICE, DE LA CHARTE DES RESPONSABILITÉS ET DE LA POLITIQUE DE CONFIDENTIALITÉ DE SEDOUBANA.</h3>
@@ -262,7 +262,7 @@
                         </div>
 
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h3>
@@ -274,7 +274,7 @@
                         </div>
 
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h2>SEDOUBANA</h2>
@@ -288,7 +288,7 @@
                         </div>
 
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h3>Voici les documents requis pour devenir conducteur de Sedoubana:</h3>
@@ -405,7 +405,7 @@
                         </div>
 
                     </div>
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
                             <h3>L’Assurance des véhicules, des conducteurs et des passagers :</h3>
@@ -466,7 +466,7 @@
 
                     </div>
 
-                    <div class="about-author d-flex p-4 bg-light">
+                    <div class="about-author d-flex p-4 bg-white">
 
                         <div class="desc">
 
