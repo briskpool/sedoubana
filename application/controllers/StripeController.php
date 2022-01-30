@@ -20,8 +20,6 @@ class StripeController extends CI_Controller
         require_once('application/libraries/stripe-php/init.php');
         $uid = $this->session->userdata('uid');
         $subscription_status = subscriptionStatus($uid);
-		$this->config->load('config');
-
         if($subscription_status){
             redirect('profile');
         }
@@ -49,7 +47,7 @@ class StripeController extends CI_Controller
                 $token = $this->input->post('stripeToken');
                 $email = $this->input->post('stripeEmail');
 
-                \Stripe\Stripe::setApiKey('sk_test_rCPBGpdY0OHBodwKzgWeBpkN00g7Hzfjrg');
+                \Stripe\Stripe::setApiKey('pk_test_wvwEOhfkVFE6ujFnFB8C9pno00xmoaVWMc');
 
                 //add customer to stripe
                 $customer = \Stripe\Customer::create(array(
@@ -66,7 +64,7 @@ class StripeController extends CI_Controller
                 //charge a credit or a debit card
                 $charge = \Stripe\Charge::create(array(
                     'customer' => $customer->id,
-                    'amount' => $itemPrice,
+                    'amount' => ($itemPrice * 100),
                     'currency' => $currency,
                     'description' => $itemNumber,
                     'metadata' => array(
