@@ -42,7 +42,8 @@ $setting = getSettings();
                                             data-description="$<?=$setting->sub_price?>/per year"
                                             data-panel-label="Pay Now"
                                             data-label="Subscribe"
-                                            data-locale="auto">
+                                            data-locale="auto",
+                                            data-currency="<?=$setting->sub_currency?>">
                                     </script>
                                 </form>
                             </div>
