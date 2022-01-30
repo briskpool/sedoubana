@@ -49,7 +49,7 @@ class StripeController extends CI_Controller
                 $token = $this->input->post('stripeToken');
                 $email = $this->input->post('stripeEmail');
 
-                \Stripe\Stripe::setApiKey('sk_test_Dhts5UYp0I96zSWSMG2fcRe0');
+                \Stripe\Stripe::setApiKey('sk_test_rCPBGpdY0OHBodwKzgWeBpkN00g7Hzfjrg');
 
                 //add customer to stripe
                 $customer = \Stripe\Customer::create(array(

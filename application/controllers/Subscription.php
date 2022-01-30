@@ -18,8 +18,6 @@ class Subscription extends CI_Controller
     {
         parent::__construct();
         require_once('application/libraries/stripe-php/init.php');
-		$this->config->load('config');
-
     }
 
     public function index()
@@ -77,14 +75,12 @@ class Subscription extends CI_Controller
         $user = $this->subscriptionModel->getUserById($uid);
         $setting = $this->subscriptionModel->getSetting();
         try {
-            \Stripe\Stripe::setApiKey('sk_test_Dhts5UYp0I96zSWSMG2fcRe0');
+            \Stripe\Stripe::setApiKey('sk_test_rCPBGpdY0OHBodwKzgWeBpkN00g7Hzfjrg');
             $token = $this->input->post('stripeToken');
             $email = $this->input->post('stripeEmail');
             $plan = $setting->sub_plan;
             $interval = $setting->sub_interval;
             $price = $setting->sub_price;
-
-            echo '<script>alert('.$price.')</script>';
             $currency = $setting->sub_currency;
             $time = time();
             $plan = \Stripe\Plan::create(array(
@@ -96,7 +92,7 @@ class Subscription extends CI_Controller
                 "interval" => $interval,
                 "interval_count" => "1",
                 "currency" => $currency,
-                "amount" => $price,
+                "amount" => ($price * 100),
             ));
 
             $customer = \Stripe\Customer::create([
