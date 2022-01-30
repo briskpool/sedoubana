@@ -45,7 +45,8 @@ class StripeController extends CI_Controller
             if (!empty($_POST['stripeToken'])) {
 
                 $token = $this->input->post('stripeToken');
-                $email = $this->input->post('stripeEmail');
+                $email =$user->email;
+                // $this->input->post('stripeEmail');
 
                 \Stripe\Stripe::setApiKey('sk_test_rCPBGpdY0OHBodwKzgWeBpkN00g7Hzfjrg');
 
