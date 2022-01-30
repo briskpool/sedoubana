@@ -75,7 +75,11 @@ class Subscription extends CI_Controller
         $user = $this->subscriptionModel->getUserById($uid);
         $setting = $this->subscriptionModel->getSetting();
         try {
+<<<<<<< HEAD
             \Stripe\Stripe::setApiKey($this->config->item('stripe_secret'));
+=======
+            \Stripe\Stripe::setApiKey('sk_test_Dhts5UYp0I96zSWSMG2fcRe0');
+>>>>>>> parent of b26a6895 (commit)
             $token = $this->input->post('stripeToken');
             $email = $this->input->post('stripeEmail');
             $plan = $setting->sub_plan;
@@ -92,7 +96,7 @@ class Subscription extends CI_Controller
                 "interval" => $interval,
                 "interval_count" => "1",
                 "currency" => $currency,
-                "amount" => $price,
+                "amount" => ($price * 100),
             ));
 
             $customer = \Stripe\Customer::create([
