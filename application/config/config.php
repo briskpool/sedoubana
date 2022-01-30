@@ -27,8 +27,8 @@ date_default_timezone_set('US/Eastern');
 $config['base_url'] = 'http://localhost/sedoubana';
 
 
-define('STRIPE_PUBLISHABLE_KEY', 'pk_test_eT9FKFFkh7ykVpBV0CPF1jmv');
-define('STRIPE_SECRET_KEY', 'sk_test_Dhts5UYp0I96zSWSMG2fcRe0');
+define('STRIPE_PUBLISHABLE_KEY', 'pk_test_wvwEOhfkVFE6ujFnFB8C9pno00xmoaVWMc');
+define('STRIPE_SECRET_KEY', 'sk_test_rCPBGpdY0OHBodwKzgWeBpkN00g7Hzfjrg');
 
 
 
