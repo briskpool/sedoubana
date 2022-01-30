@@ -37,7 +37,7 @@ switch ($url) {
     case 'add-ride':
         $rides = true;
         break;
-    case 'cites':
+    case 'cities':
     case 'view-city':
     case 'edit-city':
     case 'add-city':
@@ -100,8 +100,8 @@ switch ($url) {
                             class="fas fa-bell"></i> Alerts</a>
             </li>
             <li class="<?php echo ($city) ? 'active' : ''; ?>"><a class="nav-link"
-                                                                    href="<?php echo base_url(); ?>cites"> <i
-                            class="fas fa-globe"></i> Cites</a>
+                                                                    href="<?php echo base_url(); ?>cities"> <i
+                            class="fas fa-globe"></i> Cities</a>
             </li>
         </ul>
 

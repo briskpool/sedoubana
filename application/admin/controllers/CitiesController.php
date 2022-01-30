@@ -1,7 +1,7 @@
 <?php
 
 
-class CitesController extends CI_Controller {
+class CitiesController extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -15,7 +15,7 @@ class CitesController extends CI_Controller {
     created at 16-12-19.
     */
     public function manageCites() {
-        $data['title'] ='Cites';
+        $data['title'] ='Cities';
         $data["data"] = $this->cites->getAll();
         $this->load->view('cites/cites', $data);
     }
@@ -25,7 +25,7 @@ class CitesController extends CI_Controller {
     created at 16-12-19.
     */
     public function addCites() {
-        $data['title'] ='Cites';
+        $data['title'] ='Cities';
         $this->load->view('cites/add-city',$data);
     }
     /*
@@ -37,8 +37,8 @@ class CitesController extends CI_Controller {
         $data['name'] = $this->input->post('name');
         $data['status'] = $this->input->post('status');
         $this->cites->insert($data);
-        $this->session->set_flashdata('success', 'Cites added Successfully');
-        redirect('cites');
+        $this->session->set_flashdata('success', 'Cities added Successfully');
+        redirect('cities');
     }
     /*
     function for edit Cites get
@@ -47,7 +47,7 @@ class CitesController extends CI_Controller {
     created at 16-12-19.
     */
     public function editCites($cites_id) {
-        $data['title'] ='Cites';
+        $data['title'] ='Cities';
         $data['cites_id'] = $cites_id;
         $data['cites'] = $this->cites->getDataById($cites_id);
         $this->load->view('cites/edit-city', $data);
@@ -65,8 +65,8 @@ class CitesController extends CI_Controller {
         $data['status'] = $this->input->post('status');
         $edit = $this->cites->update($cites_id,$data);
         if ($edit) {
-            $this->session->set_flashdata('success', 'Cites Updated');
-            redirect('cites');
+            $this->session->set_flashdata('success', 'City(s) Updated');
+            redirect('cities');
         }
     }
     /*
@@ -75,7 +75,7 @@ class CitesController extends CI_Controller {
     created at 16-12-19.
     */
     public function viewCites($cites_id) {
-        $data['title'] ='Cites';
+        $data['title'] ='Cities';
         $data['cites_id'] = $cites_id;
         $data['cites'] = $this->cites->getDataById($cites_id);
         $this->load->view('cites/view-city', $data);
@@ -86,8 +86,8 @@ class CitesController extends CI_Controller {
     */
     public function deleteCites($cites_id) {
         $delete = $this->cites->delete($cites_id);
-        $this->session->set_flashdata('success', 'cites deleted');
-        redirect('cites');
+        $this->session->set_flashdata('success', 'City(s) deleted');
+        redirect('cities');
     }
     /*
     function for activation and deactivation of Cites.
@@ -96,8 +96,8 @@ class CitesController extends CI_Controller {
     */
     public function changeStatusCites($cites_id) {
         $edit = $this->cites->changeStatus($cites_id);
-        $this->session->set_flashdata('success', 'cites '.$edit.' Successfully');
-        redirect('cites');
+        $this->session->set_flashdata('success', 'City(s) '.$edit.' Successfully');
+        redirect('cities');
     }
 
 }

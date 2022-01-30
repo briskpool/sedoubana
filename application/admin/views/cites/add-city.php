@@ -6,11 +6,15 @@ $this->load->view('includes/header');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
+        <div class="section-header-back">
+                <a href="<?=base_url()?>cities" class="btn btn-icon"><i
+                            class="fas fa-arrow-left"></i></a>
+            </div>
             <h4>City Add</h4>
             <div class="section-header-breadcrumb">
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="<?php echo site_url() ?>dashboard">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="<?php echo site_url() ?>cites">Cites</a></div>
+                    <div class="breadcrumb-item"><a href="<?php echo site_url() ?>cities">Cities</a></div>
                     <div class="breadcrumb-item">add</div>
                 </div>
             </div>

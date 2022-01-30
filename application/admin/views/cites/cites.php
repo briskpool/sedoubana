@@ -13,7 +13,7 @@ $this->load->view('includes/header');
 
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="<?php echo site_url()?>dashboard">Dashboard</a></div>
-                    <div class="breadcrumb-item">Cites</div>
+                    <div class="breadcrumb-item">Cities</div>
                 </div>
             </div>
 

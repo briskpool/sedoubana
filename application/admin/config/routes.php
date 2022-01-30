@@ -108,12 +108,12 @@ $route['alert-send']="Alerts/AlertSend";
 
 
 // routes for cites.
-$route['cites']="CitesController/ManageCites";
-$route['change-status-cites/(:num)']="CitesController/changeStatusCites/$1";
-$route['edit-city/(:num)']="CitesController/editCites/$1";
-$route['edit-city-post']="CitesController/editCitesPost";
-$route['delete-city/(:num)']="CitesController/deleteCites/$1";
-$route['add-city']="CitesController/addCites";
-$route['add-city-post']="CitesController/addCitesPost";
-$route['view-city/(:num)']="CitesController/viewCites/$1";
+$route['cities']="CitiesController/ManageCites";
+$route['change-status-cities/(:num)']="CitiesController/changeStatusCites/$1";
+$route['edit-city/(:num)']="CitiesController/editCites/$1";
+$route['edit-city-post']="CitiesController/editCitesPost";
+$route['delete-city/(:num)']="CitiesController/deleteCites/$1";
+$route['add-city']="CitiesController/addCites";
+$route['add-city-post']="CitiesController/addCitesPost";
+$route['view-city/(:num)']="CitiesController/viewCites/$1";
 // end of cites routes
