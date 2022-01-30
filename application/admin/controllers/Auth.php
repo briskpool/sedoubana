@@ -130,7 +130,8 @@ class Auth extends CI_Controller
         $this->email->subject('Password Reset');
         $this->email->message($message);
         if ($this->email->send()) {
-            echo 'email sent';
+            // echo 'email sent';
+            redirect(base_url().'/forgot-password', 'refresh');
         } else {
             show_error($this->email->print_debugger());
         }
