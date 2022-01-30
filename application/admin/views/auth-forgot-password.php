@@ -30,9 +30,16 @@ $site_logo = front_url().$settings->site_logo;
                       Forgot Password
                     </button>
                   </div>
-                  <div class="alert alert-success" role="alert">
-                    <?= $this->session->flashdata('Success');?>
-                  </div>
+                  <?php 
+                    if($this->session->userdata('session_variable')) {
+                      ?>
+                      <div class="alert alert-success" role="alert">
+                      <?= $this->session->flashdata('Success');?>
+                      </div>
+                      <?php 
+                      }
+                      ?>
+                  
                 </form>
               </div>
             </div>
