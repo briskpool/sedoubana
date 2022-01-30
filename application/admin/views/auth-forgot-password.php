@@ -30,6 +30,9 @@ $site_logo = front_url().$settings->site_logo;
                       Forgot Password
                     </button>
                   </div>
+                  <div class="form-group">
+                    <?= $this->session->flashdata('Success');?>
+                  </div>
                 </form>
               </div>
             </div>
