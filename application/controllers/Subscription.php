@@ -18,6 +18,8 @@ class Subscription extends CI_Controller
     {
         parent::__construct();
         require_once('application/libraries/stripe-php/init.php');
+		$this->config->load('config');
+
     }
 
     public function index()
@@ -75,7 +77,7 @@ class Subscription extends CI_Controller
         $user = $this->subscriptionModel->getUserById($uid);
         $setting = $this->subscriptionModel->getSetting();
         try {
-            \Stripe\Stripe::setApiKey($this->config->item('stripe_secret'));
+            \Stripe\Stripe::setApiKey($this->config->item('STRIPE_SECRET_KEY'));
             $token = $this->input->post('stripeToken');
             $email = $this->input->post('stripeEmail');
             $plan = $setting->sub_plan;

@@ -20,6 +20,8 @@ class StripeController extends CI_Controller
         require_once('application/libraries/stripe-php/init.php');
         $uid = $this->session->userdata('uid');
         $subscription_status = subscriptionStatus($uid);
+		$this->config->load('config');
+
         if($subscription_status){
             redirect('profile');
         }
@@ -47,7 +49,7 @@ class StripeController extends CI_Controller
                 $token = $this->input->post('stripeToken');
                 $email = $this->input->post('stripeEmail');
 
-                \Stripe\Stripe::setApiKey($this->config->item('stripe_secret'));
+                \Stripe\Stripe::setApiKey($this->config->item('STRIPE_SECRET_KEY'));
 
                 //add customer to stripe
                 $customer = \Stripe\Customer::create(array(
