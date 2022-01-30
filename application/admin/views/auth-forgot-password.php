@@ -31,7 +31,7 @@ $site_logo = front_url().$settings->site_logo;
                     </button>
                   </div>
                   <?php 
-                    if($this->session->userdata('session_variable')) {
+                    if($this->session->userdata('Success')) {
                       ?>
                       <div class="alert alert-success" role="alert">
                       <?= $this->session->flashdata('Success');?>
