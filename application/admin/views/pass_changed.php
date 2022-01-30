@@ -18,8 +18,8 @@ $this->load->view('includes/header');
             </div>
           </div>
         </div>
-        <div class="simple-footer mt-5">
-          Copyright &copy; Stisla 2018
+        <div class="simple-footer">
+            Copyright &copy; Sedoubana <?=date("Y")?>
         </div>
       </div>
     </section>

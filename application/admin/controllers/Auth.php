@@ -131,9 +131,10 @@ class Auth extends CI_Controller
         $this->email->message($message);
         if ($this->email->send()) {
             $this->session->set_flashdata('Success', 'Reset password link sent, please check you inbox');
-            redirect(base_url().'/forgot-password', 'refresh');
+            redirect(base_url().'forgot-password', 'refresh');
         } else {
-            show_error($this->email->print_debugger());
+            $this->session->set_flashdata('error', 'Something went wrong, please try again');
+            redirect(base_url().'forgot-password', 'refresh');
         }
 
         //echo $email;
