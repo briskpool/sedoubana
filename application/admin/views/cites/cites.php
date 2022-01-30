@@ -6,7 +6,7 @@ $this->load->view('includes/header');
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h4>Cites</h4>
+                <h4>Cities</h4>
                 <div class="section-header-button">
                     <a href="<?php echo site_url()?>add-city" class="btn btn-primary">Add New</a>
                 </div>
