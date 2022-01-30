@@ -37,7 +37,7 @@ $setting = getSettings();
                                 </ul>
                                 <form action="<?php print site_url();?>stripe-checkout" method="post" class="frmStripePayment">
                                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                            data-key="pk_test_eT9FKFFkh7ykVpBV0CPF1jmv"
+                                            data-key="pk_test_wvwEOhfkVFE6ujFnFB8C9pno00xmoaVWMc"
                                             data-name="<?=$setting->sub_plan?>"
                                             data-description="$<?=$setting->sub_price?>/per year"
                                             data-panel-label="Pay Now"
