@@ -75,7 +75,7 @@ class Subscription extends CI_Controller
         $user = $this->subscriptionModel->getUserById($uid);
         $setting = $this->subscriptionModel->getSetting();
         try {
-            \Stripe\Stripe::setApiKey('sk_test_rCPBGpdY0OHBodwKzgWeBpkN00g7Hzfjrg');
+            \Stripe\Stripe::setApiKey($this->config->item('stripe_secret'));
             $token = $this->input->post('stripeToken');
             $email = $this->input->post('stripeEmail');
             $plan = $setting->sub_plan;

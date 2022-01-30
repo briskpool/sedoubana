@@ -47,7 +47,7 @@ class StripeController extends CI_Controller
                 $token = $this->input->post('stripeToken');
                 $email = $this->input->post('stripeEmail');
 
-                \Stripe\Stripe::setApiKey('sk_test_Dhts5UYp0I96zSWSMG2fcRe0');
+                \Stripe\Stripe::setApiKey($this->config->item('stripe_secret'));
 
                 //add customer to stripe
                 $customer = \Stripe\Customer::create(array(
@@ -64,7 +64,7 @@ class StripeController extends CI_Controller
                 //charge a credit or a debit card
                 $charge = \Stripe\Charge::create(array(
                     'customer' => $customer->id,
-                    'amount' => ($itemPrice * 100),
+                    'amount' => $itemPrice,
                     'currency' => $currency,
                     'description' => $itemNumber,
                     'metadata' => array(
