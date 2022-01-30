@@ -16,14 +16,6 @@ $site_logo = front_url().$settings->site_logo;
 
             <div class="card card-primary">
               <div class="card-header"><h4>Login</h4></div>
-                <p class="text-danger">
-                    <?php
-                    if (!empty($error_message)) {
-                        echo $error_message;
-                    }
-                    echo validation_errors();
-                    ?>
-
                 <div class="card-body">
                 <form method="POST" action="<?php echo base_url();?>auth/login" class="needs-validation" novalidate="">
                   <div class="form-group">
@@ -60,7 +52,16 @@ $site_logo = front_url().$settings->site_logo;
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Login
                     </button>
+                    <p class="text-danger text-center">
+                    <?php
+                    if (!empty($error_message)) {
+                        echo $error_message;
+                    }
+                    echo validation_errors();
+                    ?>
+                 </p>
                   </div>
+                  
                 </form>
 
 
