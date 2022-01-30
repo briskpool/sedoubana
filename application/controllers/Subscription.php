@@ -83,6 +83,8 @@ class Subscription extends CI_Controller
             $plan = $setting->sub_plan;
             $interval = $setting->sub_interval;
             $price = $setting->sub_price;
+
+            echo $price;
             $currency = $setting->sub_currency;
             $time = time();
             $plan = \Stripe\Plan::create(array(
