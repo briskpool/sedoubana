@@ -14,26 +14,26 @@ class Passenger_profile extends CI_Controller
     }
     private function check_isvalidated()
     {
-        //dd($this->session->userdata('p_email'));
-
-        if (!$this->session->userdata('validated_driver') && !$this->session->userdata('validated')) {
-            redirect('/');
+        if (!$this->session->userdata('validated')) {
+            redirect('/login');
         }
     }
 
     function index()
     {
+        // $this->check_subscription();
         $data['title'] = "Passenger Profile";
         $this->load->model('ProfileModel');
         $email = $this->session->userdata('email');
 
         $data['passenger'] = $this->ProfileModel->get_passenger($email);
+
         $this->load->view('passenger/profile', $data);
     }
 
     function edit()
     {
-
+        // $this->check_subscription();
         $data['title'] = "Profile edit";
         $data['error'] = "";
         $data['path'] = "";
@@ -44,7 +44,7 @@ class Passenger_profile extends CI_Controller
 
     function update()
     {
-
+        // $this->check_subscription();
         $uid = $this->session->userdata('uid');
         $email = $this->session->userdata('email');
         $data = array(
@@ -65,9 +65,18 @@ class Passenger_profile extends CI_Controller
 
     public function logout()
     {
-       
-
-         $this->session->sess_destroy();
+        $this->session->sess_destroy();
         redirect('/');
+    }
+
+
+    private function check_subscription()
+    {
+
+        $uid = $this->session->userdata('uid');
+        $subscription_status = subscriptionStatus($uid);
+        if (!$subscription_status) {
+            redirect('/stripe');
+        }
     }
 }

@@ -16,7 +16,7 @@ class Support extends CI_Controller
     {
 
         if (!$this->session->userdata('validated_driver') && !$this->session->userdata('validated')) {
-            redirect('/');
+            redirect('/login');
         }
     }
 

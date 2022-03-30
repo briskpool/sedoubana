@@ -17,7 +17,7 @@ class Settings extends CI_Controller
     public function Settings()
     {
         $data["title"] = 'Settings';
-        $data["selected"] = 'site_setting';
+        $data["selected"] = 'ticket_setting';
         $sub = $this->input->post('sub');
         if (isset($sub)) {
             if ($this->input->post('type') == 'site_setting') {
@@ -25,15 +25,15 @@ class Settings extends CI_Controller
                 $siteLogoPath = $getSetting->site_logo;
                 $site_favicon = $getSetting->site_favicon;
                 $data["selected"] = 'site_setting';
-                if(!empty($_FILES['site_logo']['name'])){
-                    $file = $this->uploadImage($_FILES['site_logo'],'site_logo');
-                    if($file['status']=='1'){
+                if (!empty($_FILES['site_logo']['name'])) {
+                    $file = $this->uploadImage($_FILES['site_logo'], 'site_logo');
+                    if ($file['status'] == '1') {
                         $siteLogoPath = $file['file'];
                     }
                 }
-                if(!empty($_FILES['site_logo']['name'])){
-                    $file = $this->uploadImage($_FILES['site_favicon'],'site_favicon');
-                    if($file['status']=='1'){
+                if (!empty($_FILES['site_logo']['name'])) {
+                    $file = $this->uploadImage($_FILES['site_favicon'], 'site_favicon');
+                    if ($file['status'] == '1') {
                         $site_favicon = $file['file'];
                     }
                 }
@@ -46,7 +46,6 @@ class Settings extends CI_Controller
                     'analytics_code' => $this->input->post('analytics_code')
                 );
                 $this->settingsModel->update($setData);
-
             } else if ($this->input->post('type') == 'email_setting') {
                 $data["selected"] = 'email_setting';
                 $setData = array(
@@ -59,7 +58,7 @@ class Settings extends CI_Controller
                     'charset' => $this->input->post('charset')
                 );
                 $this->settingsModel->update($setData);
-            }else if ($this->input->post('type') == 'sub_setting') {
+            } else if ($this->input->post('type') == 'sub_setting') {
                 $data["selected"] = 'sub_setting';
                 $setData = array(
                     'sub_plan' => $this->input->post('sub_plan'),
@@ -68,17 +67,25 @@ class Settings extends CI_Controller
                     'sub_currency' => $this->input->post('sub_currency')
                 );
                 $this->settingsModel->update($setData);
+            } else if ($this->input->post('type') == 'ticket_setting') {
+                $data["selected"] = 'ticket_setting';
+                $setData = array(
+                    'ticket_title' => $this->input->post('ticket_title'),
+                    'ticket_price' => $this->input->post('ticket_price'),
+                    'ticket_currency' => $this->input->post('ticket_currency'),
+                );
+                $this->settingsModel->update($setData);
             }
             $this->session->set_flashdata('success', 'Updated successfully');
-
         }
         $data["setting"] = $this->settingsModel->getAll();
         $this->load->view('settings', $data);
     }
 
 
-    public function uploadImage($file, $type) {
-        if(!empty($file)){
+    public function uploadImage($file, $type)
+    {
+        if (!empty($file)) {
             $name = $file['name'];
             $unique = strtotime(date('Y-m-d h:i:s'));
             $getfile = pathinfo($name);
@@ -87,22 +94,17 @@ class Settings extends CI_Controller
             $config['allowed_types'] = 'jpg|png';
             $config['overwrite'] = TRUE;
             $config['max_size']  = 2048;
-            $config['file_name'] = normalizeString($getfile['filename']) .'-'. $unique . '.'.$extension;
+            $config['file_name'] = normalizeString($getfile['filename']) . '-' . $unique . '.' . $extension;
 
             $this->load->library('upload', $config);
 
-            if ( ! $this->upload->do_upload($type))
-            {
-                return ['status'=>'0','message'=>$this->upload->display_errors()];
+            if (!$this->upload->do_upload($type)) {
+                return ['status' => '0', 'message' => $this->upload->display_errors()];
+            } else {
+                return ['status' => '1', 'file' => 'uploads/' . $config['file_name']];
             }
-            else
-            {
-                return ['status'=>'1', 'file' => 'uploads/' . $config['file_name']];
-            }
-        }else{
-            return ['status'=>'0'];
+        } else {
+            return ['status' => '0'];
         }
     }
-
-
 }

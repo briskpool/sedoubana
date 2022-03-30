@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -57,6 +57,7 @@ $route['payment-success'] = "Subscription/Success";
 $route['payment-error'] = "Subscription/Error";
 $route['stripe'] = "StripeController/index";
 $route['stripe-checkout']['post'] = "StripeController/check";
+$route['ticket-checkout']['post'] = "StripeController/ticket_checkout";
 $route['autocomplete'] = "Home/Autocomplete";
 $route['resend-email'] = "Login/resendEmail";
 $route['privacy-policy'] = "Home/privacy_policy";
@@ -64,4 +65,3 @@ $route['terms-condition'] = "Home/terms_condition";
 $route['faq'] = "Home/faq";
 
 // $route['test']=
-

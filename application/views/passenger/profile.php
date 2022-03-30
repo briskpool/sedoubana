@@ -15,8 +15,10 @@
 
   <!-- END nav -->
   <?php
+  $subscription = '';
   if ($passenger->num_rows() > 0) {
     foreach ($passenger->result() as $row) {
+      $passengerId = $row->id;
       $name = $row->fname . ' ' . $row->lname;
       $email = $row->email;
       $phone = $row->phone;
@@ -27,6 +29,7 @@
       $province = $row->province;
       $photo = ($row->photo) ? base_url() . $row->photo : base_url() . 'assets/images/placeholder.jpg';
     }
+    $subscription = getSubscription($passengerId);
   } else {
     $name = '';
     $fname = '';
@@ -129,51 +132,64 @@
 
                             </div>
                           </div>
+                          <?php
+                          if (!empty($subscription)) {
+                            $now = date(strtotime("NOW"));
+                            if (strtotime($subscription->subscription_start) <= $now && strtotime($subscription->subscription_end) >= $now) {
+                              $sub_status = "Active";
+                            } else {
+                              $sub_status = "Inactive";
+                            }
+                          ?>
+                            <hr class="mb-1 mt-1">
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1  font-small">
+                                Subscription Status:</p>
+                              <p class="col-md-9 col-12 mb-1 font-small text-dark"><?= $sub_status ?></p>
+                            </div>
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1  font-small">
+                                Subscription:</p>
+                              <p class="col-md-9 col-12 mb-1 font-small text-dark"><?= ucfirst($subscription->item_name) ?></p>
+                            </div>
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1  font-small">
+                                Subscription Start:</p>
+                              <p class="col-md-9 col-12 mb-1 font-small text-dark"><?= dateTimeToLocal($subscription->subscription_start); ?></p>
+                            </div>
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1  font-small">
+                                Subscription End:</p>
+                              <p class="col-md-9 col-12 mb-1 font-small text-dark"><?= dateTimeToLocal($subscription->subscription_end); ?></p>
+                            </div>
 
+                            <hr class="mb-1 mt-1">
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1 font-small">Country:</p>
+                              <p class="col-md-9 col-12 mb-1 font-small text-dark"><?= $subscription->source_country ?></p>
+                            </div>
 
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1 font-small">Card Type:</p>
+                              <p class="col-md-9 col-12 mb-1 font-small text-dark"><?= $subscription->source_brand ?></p>
+                            </div>
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1 font-small">Card Number:</p>
+                              <p class="col-md-9 col-12 mb-1  font-small text-dark">************<?= $subscription->source_last4 ?></p>
+                            </div>
+                            <div class="row ">
+                              <p style="color:#cc2766;" class="col-md-3 col-12 mb-1 font-small">Card Expiry:</p>
+                              <p class="col-md-9 col-12 mb-1  font-small text-dark"><?= $subscription->source_expMonth . '/' . $subscription->source_rxp_year ?></p>
+                            </div>
 
-
-
-
+                          <?php
+                          }
+                          ?>
 
                           <div class="row py-2">
                             <div class="col-md-3 col-12 mt-3">
                               <a href="<?= base_url() ?>passenger-profile/edit" class="nav-link btn btn-primary w-100">Edit</a>
                             </div>
-
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--Passenger Login form-->
-              <div class="tab-pane fade px-0 py-0" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-                <div class="row block-9 justify-content-center">
-                  <div class="col-md-8 mb-md-5 px-2 mb-md-5">
-
-                    <div class="request-form p-1 p-md-3">
-
-                      <div class="container px-0">
-                        <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
-
-                          <div class="row ">
-                            <p style="color:#cc2766;" class="col-md-3 col-12 mb-1  font-small">Billing Address:</p>
-                            <p class="col-md-9 col-12 mb-1 font-small text-dark">62 E. Blue Spring Ave.Inman, SC 29349</p>
-                          </div>
-                          <div class="row ">
-                            <p style="color:#cc2766;" class="col-md-3 col-12 mb-1 font-small">Card Type:</p>
-                            <p class="col-md-9 col-12 mb-1 font-small text-dark">VISA</p>
-                          </div>
-                          <div class="row ">
-                            <p style="color:#cc2766;" class="col-md-3 col-12 mb-1 font-small">Card Number:</p>
-                            <p class="col-md-9 col-12 mb-1  font-small text-dark">4000000000000002</p>
-                          </div>
-                          <div class="row ">
-                            <p style="color:#cc2766;" class="col-md-3 col-12 mb-1 font-small">Card Expiry:</p>
-                            <p class="col-md-9 col-12 mb-1  font-small text-dark">12/22</p>
                           </div>
 
                         </div>
@@ -183,6 +199,7 @@
                   </div>
                 </div>
               </div>
+
 
 
             </div>

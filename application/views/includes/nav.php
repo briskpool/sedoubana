@@ -20,14 +20,11 @@
                  <li class="nav-item <?php if ($this->uri->segment(1) == 'driver') {
                                             echo 'active';
                                         } ?>"><a href="<?php echo base_url(); ?>driver" class="nav-link">Driver</a></li>
-                 
+
                  <?php
-                    //                echo '<pre>';
-                    //                print_r($this->session->userData('validated'));
-                    //                exit;
                     if (!$this->session->userdata('validated_driver') && !$this->session->userData('validated')) {
                     ?>
-                     <li class="nav-item <?php if ($this->uri->segment(1) == 'Auth') {
+                     <li class="nav-item <?php if ($this->uri->segment(1) == 'login') {
                                                 echo 'active';
                                             } ?>">
                          <a href="<?php echo base_url(); ?>login" class="nav-link">Login&nbsp;&nbsp;<i class="fa fa-user"></i></a>
@@ -55,3 +52,8 @@
          </div>
      </div>
  </nav>
+
+ <!-- subscription model -->
+ <?php
+    include('subscription-modal.php');
+    ?>

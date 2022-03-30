@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * 
  */
@@ -12,10 +13,11 @@ class Alerts extends CI_Controller
         $this->check_isvalidated();
     }
 
-    private function check_isvalidated(){
+    private function check_isvalidated()
+    {
 
-        if(! $this->session->userdata('validated_driver') && !$this->session->userdata('validated')){
-            redirect('/');
+        if (!$this->session->userdata('validated_driver') && !$this->session->userdata('validated')) {
+            redirect('/login');
         }
     }
 
@@ -25,6 +27,5 @@ class Alerts extends CI_Controller
         $uid = $this->session->userdata('uid');
         $data['data'] = $this->alertsModel->getAlerts($uid);
         $this->load->view('my_alerts', $data);
-
     }
 }

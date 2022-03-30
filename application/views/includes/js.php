@@ -16,16 +16,17 @@
   <script src="<?php echo base_url(); ?>assets/js/google-map.js"></script> -->
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
 <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/bootstrap-select.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/star-rating.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
-<script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
-<link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+<!-- <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script> -->
+<!-- <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" /> -->
+
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVELSX6ErxUO5vgrxO_z9SHZyf_RvdP3w&libraries=places"></script>
 <?php
-if ($this->uri->segment(1) == 'register' || ($this->uri->segment(1) == 'profile' && $this->uri->segment(2) == 'edit') ||($this->uri->segment(1) == 'passenger-profile' && $this->uri->segment(2) == 'edit')) { ?>
+if ($this->uri->segment(1) == 'register' || ($this->uri->segment(1) == 'profile' && $this->uri->segment(2) == 'edit') || ($this->uri->segment(1) == 'passenger-profile' && $this->uri->segment(2) == 'edit')) { ?>
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
 <?php } ?>
 <script>
@@ -506,35 +507,65 @@ if ($this->uri->segment(1) == 'register' || ($this->uri->segment(1) == 'profile'
     </script>
 <?php } ?>
 <script>
-    $(document).ready(function() {
-        $("#check").change(function() {
-            if (this.checked) {
-                $("#defaultCheck1").attr("disabled", true);
-                $('#label-defaultCheck1').addClass('disabled')
-            } else {
-                $("#defaultCheck1").attr("disabled", false);
-                $('#label-defaultCheck1').removeClass('disabled')
-            }
-        });
-        $("#defaultCheck1").change(function() {
-            if (this.checked) {
-                $("#check").attr("disabled", true);
-                $('#label-check').addClass('disabled')
-            } else {
-                $("#check").attr("disabled", false);
-                $('#label-check').removeClass('disabled')
-            }
-        });
-        // $("#defaultCheck2").change(function () {
-        //     if(this.checked){
-        //         $("#check").attr("disabled", true);
-        //         $('#label-check').addClass('disabled')
-        //     }else{
-        //         $("#check").attr("disabled", false);
-        //         $('#label-check').removeClass('disabled')
-        //     }
-        // });
+    $("#check").change(function() {
+        console.log($(this).val());
+        if (this.checked) {
+            $("#defaultCheck1").attr("disabled", true);
+            $('#label-defaultCheck1').addClass('disabled')
+        } else {
+            $("#defaultCheck1").attr("disabled", false);
+            $('#label-defaultCheck1').removeClass('disabled')
+        }
     });
+    $("#defaultCheck1").change(function() {
+        console.log($(this).val());
+        if (this.checked) {
+            $("#check").attr("disabled", true);
+            $('#label-check').addClass('disabled')
+        } else {
+            $("#check").attr("disabled", false);
+            $('#label-check').removeClass('disabled')
+        }
+    });
+    // $("#defaultCheck2").change(function() {
+    //     console.log($(this).val());
+    //     if (this.checked) {
+    //         $("#check").attr("disabled", true);
+    //         $('#label-check').addClass('disabled')
+    //     } else {
+    //         $("#check").attr("disabled", false);
+    //         $('#label-check').removeClass('disabled')
+    //     }
+    // });
+    // $(document).ready(function() {
+    //     $("#check").change(function() {
+    //         if (this.checked) {
+    //             $("#defaultCheck1").attr("disabled", true);
+    //             $('#label-defaultCheck1').addClass('disabled')
+    //         } else {
+    //             $("#defaultCheck1").attr("disabled", false);
+    //             $('#label-defaultCheck1').removeClass('disabled')
+    //         }
+    //     });
+    //     $("#defaultCheck1").change(function() {
+    //         if (this.checked) {
+    //             $("#check").attr("disabled", true);
+    //             $('#label-check').addClass('disabled')
+    //         } else {
+    //             $("#check").attr("disabled", false);
+    //             $('#label-check').removeClass('disabled')
+    //         }
+    //     });
+    //     // $("#defaultCheck2").change(function () {
+    //     //     if(this.checked){
+    //     //         $("#check").attr("disabled", true);
+    //     //         $('#label-check').addClass('disabled')
+    //     //     }else{
+    //     //         $("#check").attr("disabled", false);
+    //     //         $('#label-check').removeClass('disabled')
+    //     //     }
+    //     // });
+    // });
 
     function readURL(input, id, imgId, imgName, icon) {
 
@@ -730,3 +761,21 @@ if ($this->uri->segment(1) == 'register' || ($this->uri->segment(1) == 'profile'
         });
     });
 </script>
+
+<?php
+if ($this->session->userdata('validated')) {
+    $uid = $this->session->userdata('uid');
+    $subscription_status = subscriptionStatus($uid);
+    if (!$subscription_status && $this->uri->segment(1) == 'passenger-profile') {
+?>
+
+
+        <script>
+            setTimeout(() => {
+                $('#subscriptionModal').modal('toggle');
+            }, 1000);
+        </script>
+<?php
+    }
+}
+?>

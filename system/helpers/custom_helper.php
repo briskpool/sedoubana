@@ -1,5 +1,5 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
  * User: abdulmanan7
@@ -7,8 +7,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  * Time: 23:39
  */
 
-if ( ! function_exists('test_method'))
-{
+if (!function_exists('test_method')) {
     if (!function_exists('dd')) {
         function dd($val = "i am here...", $dump = false, $lastQuery = false)
         {
@@ -26,7 +25,7 @@ if ( ! function_exists('test_method'))
         }
     }
     if (!function_exists('truncate')) {
-        function truncate($string, $length, $type='start', $dots = "....")
+        function truncate($string, $length, $type = 'start', $dots = "....")
         {
             // return  yii\helpers\StringHelper::truncate($string,$length);
             if (strlen($string) < $length) {
@@ -54,13 +53,13 @@ if ( ! function_exists('test_method'))
         }
         return strtolower($random);
     }
-    function normalizeString ($str = '')
+    function normalizeString($str = '')
     {
         $str = strip_tags($str);
         $str = preg_replace('/[\r\n\t ]+/', ' ', $str);
         $str = preg_replace('/[\"\*\/\:\<\>\?\'\|]+/', ' ', $str);
         $str = strtolower($str);
-        $str = html_entity_decode( $str, ENT_QUOTES, "utf-8" );
+        $str = html_entity_decode($str, ENT_QUOTES, "utf-8");
         $str = htmlentities($str, ENT_QUOTES, "utf-8");
         $str = preg_replace("/(&)([a-z])([a-z]+;)/i", '$2', $str);
         $str = str_replace(' ', '-', $str);
@@ -71,7 +70,7 @@ if ( ! function_exists('test_method'))
     function getRideAverageRating($rideId, $driverId)
     {
         $data = [];
-        $CI =& get_instance();
+        $CI = &get_instance();
         $CI->db->select('ROUND(AVG(rating),1) as averageRating');
         $CI->db->from('rating');
         $CI->db->where("ride_id", $rideId);
@@ -83,106 +82,97 @@ if ( ! function_exists('test_method'))
         $CI->db->from('rides');
         $CI->db->where("driver_id", $driverId);
         $ride = $CI->db->get();
-        if($rating == ''){
+        if ($rating == '') {
             $rating = 0;
         }
         $data['rating'] = $rating;
         $data['rides'] = $ride->num_rows();
         return $data;
-
     }
 
     function subscriptionStatus($uid)
     {
-//        $now = strtotime(date('Y-m-d H:i:s'));
+        //        $now = strtotime(date('Y-m-d H:i:s'));
         $now = date("Y-m-d H:i:s", strtotime("NOW"));
-        $CI =& get_instance();
-        $CI->db->where('uid',$uid);
+        $CI = &get_instance();
+        $CI->db->where('uid', $uid);
         $CI->db->where('subscription_end  >=', $now);
         $CI->db->where('subscription_start  <=', $now);
-        $data=$CI->db->get('subscription');
-        if($data->num_rows() > 0){
+        $data = $CI->db->get('subscription');
+        // dd($data);
+        if ($data->num_rows() > 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
-
-
     }
 
     function getSubscription($uid)
     {
         $now = date("Y-m-d H:i:s", strtotime("NOW"));
-        $CI =& get_instance();
-        $CI->db->where('uid',$uid);
+        $CI = &get_instance();
+        $CI->db->where('uid', $uid);
         $CI->db->where('subscription_end  >=', $now);
         $CI->db->where('subscription_start  <=', $now);
-        $data=$CI->db->get('subscription');
+        $data = $CI->db->get('subscription');
         return $data->row();
     }
 
     function getSettings()
     {
-        $CI =& get_instance();
-        $CI->db->where('id','1');
-        $data=$CI->db->get('settings');
+        $CI = &get_instance();
+        $CI->db->where('id', '1');
+        $data = $CI->db->get('settings');
         return $data->row();
-
     }
 
 
     function getCity($id)
     {
-        $CI =& get_instance();
-        $CI->db->where('id',$id);
-        $data=$CI->db->get('cites');
+        $CI = &get_instance();
+        $CI->db->where('id', $id);
+        $data = $CI->db->get('cites');
         return $data->row();
-
     }
 
     function getSeatsBooked($rideId)
     {
-        $CI =& get_instance();
+        $CI = &get_instance();
         $CI->db->select_sum('no_seats');
-        $CI->db->where('ride_id',$rideId);
-        $data=$CI->db->get('passenger_trips');
+        $CI->db->where('ride_id', $rideId);
+        $data = $CI->db->get('passenger_trips');
         return $data->row();
-
     }
 
-    function getDriverStatus($uid,$role)
+    function getDriverStatus($uid, $role)
     {
-        $CI =& get_instance();
+        $CI = &get_instance();
         $CI->db->select('status,approved');
         $CI->db->from('users');
-        $CI->db->where(['id'=>$uid,'role'=>$role]);
+        $CI->db->where(['id' => $uid, 'role' => $role]);
         $data = $CI->db->get();
-            return ($data->row())?$data->row()->approved:'';
-
+        return ($data->row()) ? $data->row()->approved : '';
     }
 
-    function getUserRating($rideId,$uid)
+    function getUserRating($rideId, $uid)
     {
-        $CI =& get_instance();
+        $CI = &get_instance();
         $CI->db->select('*');
         $CI->db->from('rating');
-        $CI->db->where(['user_id'=>$uid,'ride_id'=>$rideId]);
+        $CI->db->where(['user_id' => $uid, 'ride_id' => $rideId]);
         $data = $CI->db->get();
-        foreach($data->result_array() as $row)
-        {
+        foreach ($data->result_array() as $row) {
             return $row["rating"];
         }
-
     }
 
-    function getSeatsBookedPerRide($uId,$rideId)
+    function getSeatsBookedPerRide($uId, $rideId)
     {
-        $CI =& get_instance();
+        $CI = &get_instance();
         $CI->db->select_sum('no_seats');
-        $CI->db->where(['uid'=>$uId, 'ride_id'=>$rideId]);
-        $data=$CI->db->get('passenger_trips');
+        $CI->db->where(['uid' => $uId, 'ride_id' => $rideId]);
+        $data = $CI->db->get('passenger_trips');
         return $data->row();
-
     }
 
     function dateToDb($date)
@@ -208,18 +198,19 @@ if ( ! function_exists('test_method'))
         return date($format, strtotime($date));
     }
 
-    function isGreaterThenNow($date) {
+    function isGreaterThenNow($date)
+    {
         $now = strtotime(date('Y-m-d H:i:s'));
         $new = strtotime($date);
-        if($new > $now){
+        if ($new > $now) {
             return true;
-        }else{
+        } else {
             return false;
         }
-
     }
 
-    function time_elapsed_string($datetime, $full = false) {
+    function time_elapsed_string($datetime, $full = false)
+    {
         $now = new DateTime;
         $ago = new DateTime($datetime);
         $diff = $now->diff($ago);

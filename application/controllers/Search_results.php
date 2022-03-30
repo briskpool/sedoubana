@@ -26,9 +26,9 @@ class Search_results extends CI_controller
         );
         if (!empty($dataArray['pickup']) && !empty($dataArray['drop']) && !empty($dataArray['date-range'])) {
             $data['data'] = $this->result->getResult($dataArray);
-           
+
             // dd($this->result->getResult($dataArray)->row());
-            
+
             $this->load->view('results', $data);
         } else {
             redirect('home');
@@ -39,14 +39,16 @@ class Search_results extends CI_controller
     {
 
         $data['title'] = "Confirm Seat";
-        if (!$this->session->userData('validated')) {
+        $uid = $this->session->userdata('uid');
+        $subscription_status = subscriptionStatus($uid);
+        if (!$this->session->userData('validated') || !$subscription_status) {
 
             $tripId = $this->input->get('id');
             if ($tripId) {
                 $this->session->set_userdata('redirect_user', 'search-results/confirm-seats?id=' . $tripId);
-                
             }
         }
+        // $this->check_isvalidated();
         $dataArray = array(
             'rideId' => $this->input->get('id')
         );
@@ -59,16 +61,19 @@ class Search_results extends CI_controller
 
     function confirm_detail()
     {
-
-        if (!$this->session->userData('validated')) {
-            redirect('login');
+        $this->check_isvalidated();
+        $uid = $this->session->userdata('uid');
+        $subscription_status = subscriptionStatus($uid);
+        if ($subscription_status != '1') {
+            redirect('stripe');
         }
         $data['title'] = "Confirm Detail";
         if ($this->input->post()) {
-            $uid = $this->session->userdata('uid') ;
+
             $postArray = array(
                 'uid' => $uid,
                 'ride_id' => $this->input->post('ride_id'),
+                'ticket_payment_id' => $this->input->post('txt_id'),
                 'no_seats' => $this->input->post('seats'),
                 'duffel' => ($this->input->post('duffel') == 'on') ? '1' : '0',
                 'suitcase' => ($this->input->post('suitcase') == 'on') ? '1' : '0',
@@ -108,8 +113,8 @@ class Search_results extends CI_controller
             'uid' => $data['uid'],
             'rideId' => $data['ride_id']
         );
-        $getTripDetail=$this->result->getTrip($dataArray)->row();
-        $tripCreatedAt=$getTripDetail->created_at;
+        $getTripDetail = $this->result->getTrip($dataArray)->row();
+        $tripCreatedAt = $getTripDetail->created_at;
         $getdata = $this->result->getRideDetail($dataArray)->row();
         $user = $this->result->getUserDetail($data['uid']);
         $dep_city = $this->result->getCityById($getdata->dep_city)->name;
@@ -145,10 +150,10 @@ class Search_results extends CI_controller
         );
 
 
-        
+
         $this->driver_conf_email($dataSet, $email);
-        $name= array("name"=> $user->fname . ' ' . $user->lname);
-        $email_message= array("message"=> "You have recently booked a trip. Please find the details below.");
+        $name = array("name" => $user->fname . ' ' . $user->lname);
+        $email_message = array("message" => "You have recently booked a trip. Please find the details below.");
         $this->passenger_conf_email($dataSet, $passenger_email, $name, $email_message);
         // $message = $this->load->view('booking_email', $dataSet, TRUE);
         // $this->load->library('email', $config);
@@ -166,7 +171,7 @@ class Search_results extends CI_controller
     }
 
     function driver_conf_email($dataSet, $email)
-    {                                                                                 
+    {
         $config = $this->config->item('email_smtp');
         $message = $this->load->view('booking-email', $dataSet, TRUE);
         $this->load->library('email', $config);
@@ -183,8 +188,9 @@ class Search_results extends CI_controller
     }
     function passenger_conf_email($dataSet, $email, $name, $email_message)
     {
-        $dataSet=array_replace($dataSet,$name);
-        $dataSet=array_replace($dataSet, $email_message);
+        // dd($email);
+        $dataSet = array_replace($dataSet, $name);
+        $dataSet = array_replace($dataSet, $email_message);
         $config = $this->config->item('email_smtp');
         $message = $this->load->view('booking-email', $dataSet, TRUE);
         $this->load->library('email', $config);
@@ -193,10 +199,17 @@ class Search_results extends CI_controller
         $this->email->to($email);
         $this->email->subject('Reservation Alert');
         $this->email->message($message);
+        $this->email->send();
         if ($this->email->send()) {
             return true;
         } else {
             return false;
+        }
+    }
+    private function check_isvalidated()
+    {
+        if (!$this->session->userdata('validated')) {
+            redirect('/login');
         }
     }
 }
