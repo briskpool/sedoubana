@@ -86,7 +86,8 @@ class Search_results extends CI_controller
                 $status = $this->passengerTrips->postTrip($postArray);
                 if ($status['status']) {
                     $data['data'] = $status['data'];
-                    dd($data['data']);
+                    echo "<pre>" . $data['data'] . "</pre>";
+                    die;
                     $this->sendEmail($postArray);
                     $this->load->view('confirm_detail', $data);
                 } else {
