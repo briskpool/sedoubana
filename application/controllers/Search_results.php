@@ -79,11 +79,12 @@ class Search_results extends CI_controller
                 'suitcase' => ($this->input->post('suitcase') == 'on') ? '1' : '0',
                 'backpack' => ($this->input->post('backpack') == 'on') ? '1' : '0',
             );
-            dd($this->input->post('TS') . "------" . $this->session->userdata('form_TS'));
+
 
             if ($this->input->post('TS') != $this->session->userdata('form_TS')) {
                 $this->session->set_userdata('form_TS', $this->input->post('TS'));
                 $status = $this->passengerTrips->postTrip($postArray);
+                dd($status);
                 if ($status['status']) {
                     $data['data'] = $status['data'];
                     $this->sendEmail($postArray);
