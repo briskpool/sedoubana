@@ -79,6 +79,7 @@ class Search_results extends CI_controller
                 'suitcase' => ($this->input->post('suitcase') == 'on') ? '1' : '0',
                 'backpack' => ($this->input->post('backpack') == 'on') ? '1' : '0',
             );
+            dd($postArray);
 
             if ($this->input->post('TS') != $this->session->userdata('form_TS')) {
                 $this->session->set_userdata('form_TS', $this->input->post('TS'));
@@ -100,7 +101,7 @@ class Search_results extends CI_controller
             } else {
                 $data['data'] = $this->passengerTrips->search($postArray);
                 // dd($this->passengerTrips->search($postArray)->row());
-                dd($data);
+
                 $this->load->view('confirm_detail', $data);
             }
         } else {
