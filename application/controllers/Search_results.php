@@ -84,9 +84,9 @@ class Search_results extends CI_controller
             if ($this->input->post('TS') != $this->session->userdata('form_TS')) {
                 $this->session->set_userdata('form_TS', $this->input->post('TS'));
                 $status = $this->passengerTrips->postTrip($postArray);
-                dd($status);
                 if ($status['status']) {
                     $data['data'] = $status['data'];
+                    dd($$data);
                     $this->sendEmail($postArray);
                     $this->load->view('confirm_detail', $data);
                 } else {
