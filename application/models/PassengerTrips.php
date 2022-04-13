@@ -21,7 +21,7 @@ class PassengerTrips extends CI_Model
             // $this->db->where('p.id =', $id);
             // $data = $this->db->get();
             $data = $this->db->get('passenger_trips');
-            print_r($data);
+            print_r($data->result());
             die;
             return ["status" => $status, "data" => $data];
         } else {
