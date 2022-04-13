@@ -21,8 +21,6 @@
 <script src="<?php echo base_url(); ?>assets/js/bootstrap-select.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/star-rating.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
-<!-- <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script> -->
-<!-- <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" /> -->
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVELSX6ErxUO5vgrxO_z9SHZyf_RvdP3w&libraries=places"></script>
 <?php

@@ -32,4 +32,3 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontawesome/css/all.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/css/star-rating.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/sweetalert.css" />

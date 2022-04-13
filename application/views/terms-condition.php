@@ -121,26 +121,14 @@
                                 When you are registering to become a Sedoubana member, you must choose an email (or your ID) and a password for which you are solely responsible for any loss, or any use by others. Everything in your account is your responsibility and Sedoubana is not responsible for it.
                             </p>
                             <p>
-                                The fee to become a driver for a full year (12 months or 365 days) is only $5.00. Then, when you are ready to start to drive passengers from one city to another, you must post your ride on our website or call our customer service. Then you set your own price. We make suggestions as to the average price that drivers charge per passenger from this city to this other city. But it's up to you as driver to decide your price per passenger.
+                                There is no annual registration fee to become a driver of Sedoubana. However, when you are ready to start driving passengers from one city to another, you must post your ride on our website or call our customer service. Then you set your own price for each passenger you will be driving from the city you are leaving to the city you are going to.
                             </p>
                             <p>
-                                Passenger membership fee for a full year (12 months or 365 days) is only $5.00. Then, when you set your travel date, you can either go to our website or call our customer service to find the ideal driver who will be travelling to the city you wish to go to. You then book your seat. The fee to book 1 seat no matter how long is the distance is only $4.00.
+                                Passenger membership fee for 1 full year (12 months or 365 days) is only $5.00 + applicable taxes. Then, when you set your travel date, you can either go to our website or call our customer service to find the ideal driver who will be travelling to the city you wish to go to. You then book your seat. The fee to book 1 seat no matter how long is the distance is only $4.00 + applicable taxes.
                                 <br>
-                                We do not refund annual membership fees of $5.00 for each driver and $5.00 for each passenger.
+                                We do not refund annual membership fees of $5.00 + applicable taxes of each passenger.
                             </p>
-                            <p>
-                                At Sedoubana, we use the booking credit system.
-                                <br>
-                                If you book and pay 1 seat for $4.00, it means you have 1 booking credit with us. When you travel with a driver up to your destination, you no longer have 1 booking credit.
-                            </p>
-                            <p>
-                                During your booking, you may decide to book and pay for 5 seats when you only need 1 seat to travel. In this case, the 5 seats will cost you only $16.00 instead of $20.00. You save $4.00 or 1 booking credit. The remaining 4 seats will be in your Sedoubana account.
-                            </p>
-                            <p>
-                                When you wish to travel the next time, you will not need to pay again; you will simply use one of your remaining seats that you have already paid, until you finish using them.
-                                <br>
-                                Whenever you book and pay for 5 seats at a time, you get a free seat.
-                            </p>
+
                             <p>
                                 Sedoubana does not warrant that our services meet your requirements. However, we do our best to offer our customers, especially the passengers, the best possible services.
                                 <br>
@@ -150,9 +138,9 @@
                                 In terms of payment methods, we accept debit cards and credit cards such as MasterCard, Visa and American Express. You can make payments directly using our secured website or through our partner PayPal.
                             </p>
                             <p>
-                                When a passenger finish booking his or her seat, we facilitate meetings by providing him or her this information about the driver: first name, last name, phone number, email, meeting place, as well as details about the vehicle like license plate number, make, color, model, the picture of driver and the vehicle.
+                                When a passenger finish booking his or her seat, we facilitate meetings by providing him or her with the following information about the driver: first name, last name, phone number, email, meeting place, as well as details about the vehicle like license plate number, make, color, model, the picture of driver and the vehicle.
                                 <br>
-                                At the same time, we provide the driver with this information about the passenger: first name, last name, phone number, and email.
+                                At the same time, we provide the driver with the following information about the passenger: first name, last name, phone number, and email.
                             </p>
                             <p>
                                 We recommend that passengers and drivers notify Sedoubana at least 12 hours in advance when they decide to cancel their trips so we can connect passengers to other drivers and drivers to other passengers. There is no fee to cancel a trip.
@@ -357,26 +345,14 @@
                                 Lorsque vous vous inscrivez pour devenir membre Sedoubana, vous devez choisir un email (ou votre identifiant) et un mot de passe pour lesquels vous êtes le seul responsable de toute perte ou utilisation par des tiers. Tout sur votre compte est de votre responsabilité et Sedoubana n'en est pas responsable.
                             </p>
                             <p>
-                                Le coût pour devenir conducteur pendant une année complète (12 mois ou 365 jours) est seulement de 5,00 $. Ensuite, lorsque vous êtes prêt à conduire des passagers d’une ville à l’autre, vous devez publier votre trajet sur notre site Web ou en appelant notre service à la clientèle. Ensuite, vous fixez votre propre prix. Nous faisons des suggestions quant au prix moyen que les conducteurs facturent par passager. Mais c’est à vous, en tant que conducteur, de choisir votre prix par passager.
+                                Il n'y a pas de frais d'inscription annuels pour devenir chauffeur de SEDOUBANA. Cependant, lorsque vous êtes prêt à commencer à conduire des passagers d'une ville à l'autre, vous devez publier votre trajet sur notre site Web ou appeler notre service à la clientèle. Ensuite, vous fixez votre propre prix pour chaque passager que vous allez conduire de la ville où vous quittetz à la ville où vous allez.
                             </p>
                             <p>
-                                Les frais d'adhésion d'un passager pour une année complète (12 mois ou 365 jours) sont de 5,00 $ seulement. Ensuite, lorsque vous fixez la date à laquelle vous souhaitez voyager, vous pouvez soit aller sur notre site web, soit appeler notre service clientèle pour trouver le conducteur idéal qui se rendra dans la ville où vous souhaitez aller. Vous réservez alors une place. Le prix pour réserver une place, peu importe la longueur de la distance, est de 4,00 $ seulement.
+                                Les frais d'adhésion d'un passager pour une année complète (12 mois ou 365 jours) sont de 5,00 $ seulement + les taxes applicables. Ensuite, lorsque vous fixez la date à laquelle vous souhaitez voyager, vous pouvez soit aller sur notre site web, soit appeler notre service clientèle pour trouver le conducteur idéal qui se rendra dans la ville où vous souhaitez aller. Vous réservez alors un siège. Le prix pour réserver un siège peu importe la longueur de la distance est de 4,00 $ seulement + les taxes applicables.
                                 <br>
-                                Nous ne remboursons pas les frais d'adhésion annuels de 5,00 $ pour chaque conducteur et de 5,00 $ pour chaque passager.
+                                Nous ne remboursons pas les frais d'adhésion annuels de 5,00 $+ les taxes applicables de chaque passager.
                             </p>
-                            <p>
-                                Chez Sedoubana, nous utilisons le système de crédits de réservation.
-                                <br>
-                                Si vous réservez et payez une place à 4,00 $, cela signifie que vous disposez d'un crédit de réservation de 4,00 $ chez nous. Lorsque vous voyagez avec un conducteur jusqu'à votre destination, vous n'avez plus de crédit de réservation.
-                            </p>
-                            <p>
-                                Lors de votre réservation, vous pouvez décider de réserver et de payer 5 places alors que vous n’avez besoin que d’une place pour voyager. Dans ce cas, les 5 places ne vous coûteront que 16,00 $ au lieu de 20,00 $. Vous économisez 4,00 $ ou 1 crédit de réservation. Les 4 places restantes seront sur votre compte Sedoubana.
-                            </p>
-                            <p>
-                                Lorsque vous souhaitez voyager la prochaine fois, vous n'aurez plus besoin de payer. Vous utiliserez simplement l'une des places restantes que vous avez déjà payées jusqu'à ce que vous ayez fini de les utiliser.
-                                <br>
-                                Chaque fois que vous réservez et payez 5 places à la fois, vous obtenez une place gratuite.
-                            </p>
+
                             <p>
                                 Sedoubana ne garantit pas que nos services répondent à vos exigences. Cependant, nous faisons de notre mieux pour offrir à nos clients, en particulier les passagers, les meilleurs services possibles.
                                 <br>
