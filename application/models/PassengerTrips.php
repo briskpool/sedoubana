@@ -12,7 +12,7 @@ class PassengerTrips extends CI_Model
 
         if ($status) {
 
-            $id = $this->db->insert_id();
+            // $id = $this->db->insert_id();
             // $this->db->select('p.*, r.*, i.*');
             // $this->db->select('p.*');
             // $this->db->from('passenger_trips');
