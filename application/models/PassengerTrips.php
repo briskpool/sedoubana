@@ -17,11 +17,6 @@ class PassengerTrips extends CI_Model
             $this->db->join('driver_info as i', ' r.driver_id = i.uid');
             $this->db->where('p.id =', $id);
             $data = $this->db->get();
-
-            foreach ($data->result() as $row) {
-                echo $row->no_seats;
-            }
-            die;
             return ["status" => $status, "data" => $data];
         } else {
             return ["status" => false, "error" => "Error In inserting record"];
