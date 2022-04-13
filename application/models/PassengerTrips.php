@@ -1,13 +1,16 @@
-<?php 
+<?php
+
 /**
  * 
  */
 class PassengerTrips extends CI_Model
 {
 
-	function postTrip($data){
-		$status =  $this->db->insert('passenger_trips', $data);
-		if($status){
+    function postTrip($data)
+    {
+        $status =  $this->db->insert('passenger_trips', $data);
+        dd($status);
+        if ($status) {
             $id = $this->db->insert_id();
             $this->db->select('p.*, r.*, i.*');
             $this->db->from('passenger_trips as p');
@@ -15,18 +18,20 @@ class PassengerTrips extends CI_Model
             $this->db->join('driver_info as i', ' r.driver_id = i.uid');
             $this->db->where('p.id =', $id);
             $data = $this->db->get();
-            return ["status"=>$status,"data"=>$data];
-        }else{
-            return ["status"=>false,"error"=>"Error In inserting record"];
+            return ["status" => $status, "data" => $data];
+        } else {
+            return ["status" => false, "error" => "Error In inserting record"];
         }
-	}
-	function getTrips($uid){
-		$this->db->where('uid',$uid);
-		$data=$this->db->get('passenger_trips');
-		return $data;
-	}
+    }
+    function getTrips($uid)
+    {
+        $this->db->where('uid', $uid);
+        $data = $this->db->get('passenger_trips');
+        return $data;
+    }
 
-    function getMyTrips($uid){
+    function getMyTrips($uid)
+    {
         $this->db->select('p.*, r.*, i.*');
         $this->db->from('passenger_trips as p');
         $this->db->join('rides as r', ' r.id = p.ride_id');
@@ -38,7 +43,8 @@ class PassengerTrips extends CI_Model
         return $data;
     }
 
-    function getMyRides($rideId){
+    function getMyRides($rideId)
+    {
         $this->db->select('t.*, u.*');
         $this->db->from('passenger_trips as t');
         $this->db->join('users as u', ' t.uid = u.id');
@@ -47,18 +53,18 @@ class PassengerTrips extends CI_Model
         return $data;
     }
 
-	function search($data){
+    function search($data)
+    {
         $this->db->where($data);
-        $getGata=$this->db->get('passenger_trips');
+        $getGata = $this->db->get('passenger_trips');
         $id = $getGata->row()->id;
         $this->db->select('p.*, r.*, i.*');
         $this->db->from('passenger_trips as p');
         $this->db->join('rides as r', ' r.id = p.ride_id');
         $this->db->join('driver_info as i', ' r.driver_id = i.uid');
         $this->db->where('p.id =', $id);
-        
+
         $data = $this->db->get();
         return $data;
-        
-	}
+    }
 }
