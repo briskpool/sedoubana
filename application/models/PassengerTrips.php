@@ -9,19 +9,18 @@ class PassengerTrips extends CI_Model
     function postTrip($data)
     {
         $status =  $this->db->insert('passenger_trips', $data);
-
         if ($status) {
+            $id = $this->db->insert_id();
+            $this->db->select('p.*, r.*, i.*');
+            $this->db->from('passenger_trips as p');
+            $this->db->join('rides as r', ' r.id = p.ride_id');
+            $this->db->join('driver_info as i', ' r.driver_id = i.uid');
+            $this->db->where('p.id =', $id);
+            $data = $this->db->get();
 
-            // $id = $this->db->insert_id();
-            // $this->db->select('p.*, r.*, i.*');
-            // $this->db->select('p.*');
-            // $this->db->from('passenger_trips');
-            // $this->db->join('rides as r', ' r.id = p.ride_id');
-            // $this->db->join('driver_info as i', ' r.driver_id = i.uid');
-            // $this->db->where('p.id =', $id);
-            // $data = $this->db->get();
-            $data = $this->db->get('passenger_trips');
-            print_r($data->result());
+            foreach ($data->result() as $row) {
+                echo $row->no_seats;
+            }
             die;
             return ["status" => $status, "data" => $data];
         } else {
