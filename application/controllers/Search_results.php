@@ -61,12 +61,12 @@ class Search_results extends CI_controller
 
     function confirm_detail()
     {
-        $this->check_isvalidated();
+        // $this->check_isvalidated();
         $uid = $this->session->userdata('uid');
-        $subscription_status = subscriptionStatus($uid);
-        if ($subscription_status != '1') {
-            redirect('stripe');
-        }
+        // $subscription_status = subscriptionStatus($uid);
+        // if ($subscription_status != '1') {
+        //     redirect('stripe');
+        // }
         $data['title'] = "Confirm Detail";
         if ($this->input->post()) {
 
@@ -100,6 +100,7 @@ class Search_results extends CI_controller
             } else {
                 $data['data'] = $this->passengerTrips->search($postArray);
                 // dd($this->passengerTrips->search($postArray)->row());
+                dd($data);
                 $this->load->view('confirm_detail', $data);
             }
         } else {
