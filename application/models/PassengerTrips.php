@@ -11,7 +11,7 @@ class PassengerTrips extends CI_Model
         $status =  $this->db->insert('passenger_trips', $data);
 
         if ($status) {
-            $query = $this->db->table('table_name')->get();
+            $query = $this->db->table('passenger_trips')->get();
             dd($query->getResult());
             $id = $this->db->insert_id();
             // $this->db->select('p.*, r.*, i.*');
