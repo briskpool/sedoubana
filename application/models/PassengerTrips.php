@@ -17,7 +17,7 @@ class PassengerTrips extends CI_Model
             $this->db->from('passenger_trips as p');
             $this->db->join('rides as r', ' r.id = p.ride_id');
             $this->db->join('driver_info as i', ' r.driver_id = i.uid');
-            $this->db->where('p.id =', $id);
+            // $this->db->where('p.id =', $id);
             $data = $this->db->get();
             dd($data->result());
             return ["status" => $status, "data" => $data];
