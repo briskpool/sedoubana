@@ -17,7 +17,6 @@ class PassengerTrips extends CI_Model
                 ->join('driver_info as i', ' r.driver_id = i.uid')
                 ->where('p.id =', $id)
                 ->get();
-            dd($this->db->last_query());
             return ["status" => $status, "data" => $data];
         } else {
             return ["status" => false, "error" => "Error In inserting record"];
