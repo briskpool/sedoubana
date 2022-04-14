@@ -11,16 +11,13 @@ class PassengerTrips extends CI_Model
         $status =  $this->db->insert('passenger_trips', $data);
         if ($status) {
             $id = $this->db->insert_id();
-            // $test = $this->db->query('select * from passenger_trips where id=' . $id);
-
             $data = $this->db->select('p.*, r.*, i.*')
                 ->from('passenger_trips as p')
                 ->join('rides as r', ' r.id = p.ride_id')
                 ->join('driver_info as i', ' r.driver_id = i.uid')
                 ->where('p.id =', $id)
                 ->get();
-            // $data = $this->db->get();
-            // dd($data->result());
+            dd($this->db->last_query());
             return ["status" => $status, "data" => $data];
         } else {
             return ["status" => false, "error" => "Error In inserting record"];
