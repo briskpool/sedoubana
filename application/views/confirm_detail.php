@@ -17,7 +17,7 @@
 
     <section class="ftco-section ftco-section-full ftco-animate pb-4">
         <div class="container">
-            <div class="row px-2">
+            <div class="row px-2 justify-content-center">
                 <h5 class="mt-2">Thanks, you have successfully reserved your seat(s).</h5>
                 <?php
                 if ($data->num_rows() > 0) {
@@ -27,7 +27,7 @@
                         $dep_city =  (getCity($row->dep_city)) ? getCity($row->dep_city)->name : '';
                         $dest_city =  (getCity($row->dest_city)) ? getCity($row->dest_city)->name : '';
                 ?>
-                        <div class="col-md-12 pb-1 mb-3 request-form ftco-animate fadeInUp ftco-animated">
+                        <div class="col-md-12 mb-3 request-form ftco-animate fadeInUp ftco-animated">
                             <div class="row ">
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 pr-0 text-center ">
                                     <img src="<?= $carImage ?>" class="rounded  w-75 float-left" alt="">
