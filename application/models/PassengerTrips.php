@@ -10,8 +10,8 @@ class PassengerTrips extends CI_Model
     {
         $status =  $this->db->insert('passenger_trips', $data);
         if ($status) {
+            dd($this->db->query('select * from passenger_trips'));
             $id = $this->db->insert_id();
-            dd($id);
             $this->db->select('p.*, r.*, i.*');
             $this->db->from('passenger_trips as p');
             $this->db->join('rides as r', ' r.id = p.ride_id');
